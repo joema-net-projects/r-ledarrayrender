@@ -27,7 +27,7 @@ dev.control('enable');
 
 
 saveVideo({
-  for (i in (1:150)) {
+  for (i in (1:totalFrames)) {
     yStart = (i * d.y) - (d.y);#Finds next frame and starts at the top of the frame
     frame(); #Creates a new plot
     plot.window(c(1, dim(b)[2]), c(1, d.y));
