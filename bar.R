@@ -27,16 +27,16 @@ dev.control('enable');
 
 
 saveVideo({
-  for (i in (1:totalFrames)) {
+  for (i in (1:150)) {
     yStart = (i * d.y) - (d.y);#Finds next frame and starts at the top of the frame
     frame(); #Creates a new plot
     plot.window(c(1, dim(b)[2]), c(1, d.y));
     par(bg = "white");
-    while(yStart < i * d.y){ #Cuz R indexes at 1
-      xStart = 1;
-      while(xStart <= dim(b)[2]){
+    while(yStart < i * d.y){ #Cuz R indexes at 1 and graphs start at 0
+      xStart = 0;
+      while(xStart < dim(b)[2]){
         
-        if(b[yStart+1,xStart] != 0){#Creates a black rect at every 255 spot
+        if(b[yStart+1,xStart+1] != 0){#Creates a black rect at every 255 spot
           rect(xStart - dx, d.y - yStart %% (d.y) - dy,xStart + dx,d.y - yStart %% (d.y) + dy, col = "black")
         }#Since we start at top of frame, y position is subtracted since graphs don't start from the top.
         
